@@ -1,5 +1,5 @@
 from flask import Flask, request, jsonify
-from flask_cors import CORS
+from flask import CORS
 import pdfplumber
 import pandas as pd
 import re
@@ -26,7 +26,7 @@ def extract_text_from_pdf(pdf_path):
     return text
 
 
-@app.route('/upload', methods=['POST'])
+@app.route('', methods=['POST'])
 def upload_and_process_pdf():
     if 'file' not in request.files:
         return jsonify({'message': 'No file part'}), 400
